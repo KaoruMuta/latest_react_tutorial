@@ -1,6 +1,44 @@
-# Getting Started with Create React App
+# React tutorial with modern structure
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## How to create this project
+
+Execute this command:
+
+```sh
+npx create-react-app react_tutorial_typescript --template typescript
+```
+
+## How to set up ESLint and Prettier with Typescript
+
+1. Install following dependencies about `ESLint`
+
+```sh
+# In this command, Typescript will also be upgraded
+yarn add eslint typescript @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint-plugin-react --dev
+```
+
+2. Configure files of `ESLint`
+
+```sh
+yarn run eslint --init
+```
+
+3. Install following dependencies about `ESLint` and `Prettier`
+
+```sh
+yarn add prettier eslint-config-prettier --dev
+```
+
+4. Edit `.eslintrc.js` as follows (Add `prettier` in extends)
+
+```js
+extends: [
+    'eslint:recommended',
+    'plugin:react/recommended',
+    'plugin:@typescript-eslint/recommended',
+    'prettier',
+],
+```
 
 ## Available Scripts
 
@@ -38,9 +76,3 @@ If you aren’t satisfied with the build tool and configuration choices, you can
 Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
