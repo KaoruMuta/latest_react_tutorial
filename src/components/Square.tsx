@@ -1,17 +1,14 @@
 import React, { FC } from 'react';
-import { useState } from 'react';
 
 type Props = {
-  value: number;
+  value: string | null;
+  onClick: () => void;
 };
 
 export const Square: FC<Props> = (props: Props) => {
-  const [value, setValue] = useState<string | null>(null);
-  // TODO: remove this description
-  console.log(props);
   return (
-    <button className="square" onClick={() => setValue('X')}>
-      {value}
+    <button className="square" onClick={props.onClick}>
+      {props.value}
     </button>
   );
 };

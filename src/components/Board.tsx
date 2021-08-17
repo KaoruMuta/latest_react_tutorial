@@ -1,12 +1,55 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import { Square } from './Square';
 
 export const Board: FC = () => {
-  const status = 'Next player: X';
+  const [squares, setSquares] = useState<Array<string | null>>(
+    Array(9).fill(null)
+  );
+  const [xIsNext, setXIsNext] = useState(true);
 
   const renderSquare = (i: number): JSX.Element => {
-    return <Square value={i} />;
+    return <Square value={squares[i]} onClick={() => handleClick(i)} />;
   };
+
+  const handleClick = (i: number) => {
+    const copySquares = squares.slice();
+    if (calculateWinner(copySquares) || squares[i]) {
+      return;
+    }
+    copySquares[i] = xIsNext ? 'X' : 'O';
+    setSquares(copySquares);
+    setXIsNext(!xIsNext);
+  };
+
+  const calculateWinner = (squares: Array<string | null>): string | null => {
+    const lines = [
+      [0, 1, 2],
+      [3, 4, 5],
+      [6, 7, 8],
+      [0, 3, 6],
+      [1, 4, 7],
+      [2, 5, 8],
+      [0, 4, 8],
+      [2, 4, 6],
+    ];
+
+    for (let i = 0; i < lines.length; i++) {
+      const [a, b, c] = lines[i];
+      if (
+        squares[a] &&
+        squares[a] === squares[b] &&
+        squares[a] === squares[c]
+      ) {
+        return squares[a];
+      }
+    }
+    return null;
+  };
+
+  const winner = calculateWinner(squares);
+  const status = winner
+    ? 'Winner:' + winner
+    : 'Next player:' + (xIsNext ? 'X' : 'O');
 
   return (
     <div>
