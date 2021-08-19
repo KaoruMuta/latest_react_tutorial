@@ -1,8 +1,7 @@
-import React, { FC } from 'react';
-import './Game.css';
+import React, { FC, useState } from 'react';
 import { Board } from './components/Board';
-import { useState } from 'react';
 import { calculateWinner } from './helpers/CalculateWinnerHelper';
+import './Game.css';
 
 type History = {
   squares: (string | null)[];
