@@ -8,6 +8,20 @@ Execute this command:
 npx create-react-app react_tutorial_typescript --template typescript
 ```
 
+## Directory structure
+
+| directory       | detail                                               |
+| --------------- | ---------------------------------------------------- |
+| `node_modules`  | Imported modules                                     |
+| `public`        | Static files                                         |
+| `src`           | Source codes                                         |
+| `.eslintrc.js`  | Config file of `ESLint`                              |
+| `.gitignore`    | `.gitignore` file to avoid tracing specific packages |
+| `.prettierrc`   | Config file of `Prettier`                            |
+| `package.json`  | Config file of dependencies, npm-scripts...          |
+| `tsconfig.json` | Config file of `TypeScript`                          |
+| `yarn.lock`     | Version lists of imported dependencies               |
+
 ## How to set up ESLint and Prettier with Typescript
 
 1. Install following dependencies about `ESLint`
